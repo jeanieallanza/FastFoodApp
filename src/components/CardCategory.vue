@@ -22,7 +22,7 @@
         </div>
     </div>
 
-     <!--card item: 1=2-->
+     <!--card item: 2-->
      <div class="box">
         <img class="item" src="../assets/images/sorvetes.png">
         <h6>Steak Fries Veggies</h6>
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="box">
-        <img class="item" src="../assets/images/chicken.png">
+        <img class="item chicken" src="../assets/images/chicken.png">
         <h6>Steak Fries Veggies</h6>
         <label>Meat</label>
         <div class="quantity">
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-     <!--card item: 1-->
+     <!--card item: 3-->
      <div class="box">
         <img class="item" src="../assets/images/veggies.png">
         <h6>Steak Fries Veggies</h6>
@@ -79,7 +79,7 @@ export default{
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 10px;
 }
 .box{
    background-color: #e9ecef;
@@ -92,6 +92,7 @@ export default{
     margin-left: auto;
     margin-right: auto;
     width: 136px;
+    height: 136px;
     padding-top: 20px;
     padding-right: 16px;
     padding-left: 16px;

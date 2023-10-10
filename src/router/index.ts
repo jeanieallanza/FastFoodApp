@@ -5,6 +5,7 @@ import InputLayout from '../components/InputLayout.vue';
 import Loginpage from '../views/Loginpage.vue';
 import Homepage from '../views/Homepage.vue';
 import OrderPage from '../views/Orderpage.vue';
+import OrderDetails from '../views/OrderDetails.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -43,6 +44,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/order',
     name: 'Order',
     component: OrderPage
+  },
+  {
+    path: '/details',
+    name: 'Details',
+    component: OrderDetails
   },
 ]
 
