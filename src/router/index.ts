@@ -3,6 +3,9 @@ import { RouteRecordRaw } from 'vue-router';
 import OnBoarding from '../views/OnBoarding.vue';
 import InputLayout from '../components/InputLayout.vue';
 import Loginpage from '../views/Loginpage.vue';
+import Homepage from '../views/Homepage.vue';
+import OrderPage from '../views/Orderpage.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,11 +33,16 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
 
-  //  for content
+    //  for content
   {
     path: '/home',
-    name: 'Homepage',
-    component: () => import('../views/Homepage.vue')
+    name: 'Home',
+    component: Homepage
+  },
+  {
+    path: '/order',
+    name: 'Order',
+    component: OrderPage
   },
 ]
 

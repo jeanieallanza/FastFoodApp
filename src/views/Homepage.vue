@@ -1,57 +1,194 @@
 <template>
-<ion-page>
 
-    <ion-content>
+  <!--sidebar components-->
+  <Sidebar></Sidebar>
 
-        <!--main content-->
-        <div class="container">
-           
-            <!--navbar items-->
-            <div class="nav">
-                <div class="item1">
-                    <img src="../assets/icons/bar.png">
-                    <img class="notif" src="../assets/icons/Notif.png">
-                </div>
-                <div class="item2">
-                    <img src="../assets/icons/crown.png">
-                </div>
-                <div class="item3">
-                    <p>{{ totalPoints }}</p>
-                    <img src="../assets/icons/chevron-left.png">
-                </div>
-                <div class="profile">
-                    <img src="../assets/images/profile-sm.png">
-                </div>
-            </div>
+  <ion-page id="main-content">
 
+    <!--home header-->
+    <ion-header collapse="fade">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button>
+            <img src="../assets/icons/bar.png">
+          </ion-menu-button>
+        </ion-buttons>
+
+        <div class="item">
+          <img class="crown" src="../assets/icons/crown.png">
+          <label>0 Points</label>
+          <button>
+            <img src="../assets/icons/chevron-left.png">
+          </button>
         </div>
+         
+          <ion-buttons slot="end">
+            <img class="profile" src="../assets/logo/profile-sm.png">
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <!--home content-->
+    <ion-content class="ion-padding">
+
+    <!--hero-->
+    <HeroLayout></HeroLayout>
+
+    <!--search button-->
+    <Search></Search>
+
+    <!--Slides-->
+    <div class="slide-item">
+      <div class="text">
+        <h2>Special Offers!</h2>
+      </div>
+      <div class="text">
+        <label>View All</label>
+        <img src="../assets/icons/chevron-left.png">
+      </div>
+    </div>
+
+    <!--implement swiper js for image slides-->
+    <div class="swipe">
+      <SwiperImage></SwiperImage>
+    </div>
+
+
+    <!--for category-->
+      <div class="title">
+        <h2>Category</h2>
+        <div class="card">
+          <SwiperCategory></SwiperCategory>
+        </div>
+      </div>
+
+      <!--for new item image-->
+      <div class="title">
+        <h2>What's new?</h2>
+        <div class="card">
+          <img src="../assets/images/whatsnew-img.png">
+        </div>
+      </div>
+
+      <!--for popular products-->
+      <div class="title">
+        <h2>Most Popular</h2>
+        <div class="content">
+          <CardCategory></CardCategory>
+        </div>
+      </div>
 
     </ion-content>
-</ion-page>
+
+    <div class="footer-content">
+      <FooterLayout></FooterLayout>
+    </div>
+  </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonContent } from '@ionic/vue'
 
-export default {
-    name: 'Homepage',
-    components: {
-        IonPage,
-        IonContent,
-    },
-    data() {
-        return {
-            totalPoints: '0 Points',
-        }
-    }
+import HeroLayout from '@/components/HeroLayout.vue';
+import Sidebar from '../components/SidebarLayout.vue'
+import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonContent } from '@ionic/vue'
+import Search from '@/components/Search.vue';
+import SwiperImage from '@/components/SwiperImage.vue';
+import SwiperCategory from '@/components/SwiperCategory.vue';
+import CardCategory from '@/components/CardCategory.vue';
+import FooterLayout from '@/components/FooterLayout.vue';
+
+export default{
+  components:{
+    Sidebar,
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonContent,
+    HeroLayout,
+    Search,
+    SwiperImage,
+    SwiperCategory,
+    CardCategory,
+    FooterLayout
+}
 }
 </script>
 
 <style scoped>
-.container{
-    padding: 16px;
+ion-toolbar{
+  --min-height: 60px;
+  --padding-top: 19px;
+  --padding-bottom: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
 }
-.container .nav{
-    display: grid;
+ion-content{
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+.item{
+  display: grid;
+  grid-template-columns: 30px 61px 30px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.profile{
+  width: auto;
+}
+button{
+  background-color: transparent;
+  border: none;
+}
+label{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+.slide-item{
+  display: grid;
+  grid-template-columns: 150px 90px;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 24px;
+}
+.slide-item h2{
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+.slide-item label{
+  color: #D71921;
+  margin-right: 10px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+}
+.text{
+  display: flex;
+}
+.title{
+  margin-top: 24px;
+}
+.title h2{
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+.card{
+  margin-top: 8px;
+  width: auto;  
+  text-align: center;
+}
+.card img{
+  max-width: 350px;  
+  height: auto;
+}
+.content{
+  margin-top: 8px;
 }
 </style>
+

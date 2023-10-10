@@ -4,6 +4,18 @@
   </ion-app>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import Sidebar from './components/SidebarLayout.vue';
+
+export default{
+  name: 'App',
+  components:{
+    IonApp,
+    IonRouterOutlet,
+},
+}
 </script>
+
+<style scoped>
+</style>

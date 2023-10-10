@@ -4,7 +4,7 @@
             <div class="container">
 
                 <!--display logo-->
-                <img src="../assets/logos/Logo.png">
+                <img src="../assets/logo/Logo.png">
 
                 <h1>{{ greetings }}</h1>
                 <p>Welcome to all new FastFood mobile app. Kindly login your account. Thank you!</p>
@@ -13,8 +13,6 @@
                <div class="form">
                <router-view></router-view>
                </div>
-
-
             </div>
         </ion-content>
     </ion-page>

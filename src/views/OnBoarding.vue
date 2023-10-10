@@ -1,23 +1,35 @@
 <template>
   <ion-page>
 
-   <ion-content :fullscreen="true">
+   <ion-content @click.prevent="onLoginPage()"  :fullscreen="true">
     <div class="container">
-      <img src="../assets/logos/logoinverted.png">
+      <img src="../assets/logo/logoinvert.png">
     </div>
    </ion-content>
 
   </ion-page>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { IonPage, IonContent } from '@ionic/vue';
+
+export default{
+  components:{
+    IonPage,
+    IonContent,
+  },
+  methods:{
+        onLoginPage(){
+            this.$router.push('/login');
+        }
+    },
+}
 </script>
 
 <style scoped>
 ion-content{
   --overflow: hidden;
-  --background: var(--base);
+  --background: #D71921;
 }
 .container{
   text-align: center;
