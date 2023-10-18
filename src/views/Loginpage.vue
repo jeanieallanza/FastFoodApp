@@ -5,14 +5,14 @@
     <!--email input-->
     <div class="group">
        <label for="email">Email Address</label>
-       <input type="email" id="email" v-model="email" autocomplete="off" placeholder="choutzuyu@gmail.com" required>
+       <input type="email" id="email" name="email" v-model="email" autocomplete="off" placeholder="choutzuyu@gmail.com" required>
     </div>
 
     <!--password input-->
     <div class="group">
         <label for="pass">Password</label>
          <div class="grid">
-            <input type="password" id="pass" v-model="password" autocomplete="off" placeholder="Enter your password" required>
+            <input type="password" id="pass" name="password" v-model="password" autocomplete="off" placeholder="Enter your password" required>
             <p>Forgot?</p>
          </div>
     </div>
@@ -33,29 +33,36 @@
 
 </template>
 
-<script lang="ts">
+<script>
 import axios from 'axios'
-
+import router from '../router';
 
 export default{
-   data() {
+    data() {
         return{
             email: '',
             password: '',
         };
    },
    methods: {
-     onloggedIn (){
-        axios.post('https://psi-exam-api.praxxys.dev/api/auth/login',
-        {email: this.email, password: this.password},
-        )
+     onloggedIn(){
+        const credentials = {
+            email: this.email,
+            password: this.password,
+        };
+        console.log(credentials)
+        axios
+        .post("https://psi-exam-api.praxxys.dev/api/auth/login", credentials)
         .then((response) => {
-            this.$router.push('/home');
-            console.log(response);
+            console.log(response)
+            localStorage.setItem('token', response.data.access_token)
+            router.push('/home')
         })
-     },
+        .catch((err) => console.log(err.response));
+     }
    },
 };
+
 </script>
 
 <style scoped>

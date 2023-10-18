@@ -1,9 +1,8 @@
 <template>
-
-  <!--sidebar components-->
-  <Sidebar></Sidebar>
-
   <ion-page id="main-content">
+
+   <!--sidebar components-->
+   <Sidebar></Sidebar>
 
     <!--home header-->
     <ion-header collapse="fade">
@@ -78,27 +77,30 @@
         </div>
       </div>
 
-    </ion-content>
 
-    <div class="footer-content">
-      <FooterLayout></FooterLayout>
-    </div>
+         <!--button for logout-->
+         <footer>
+            <button id="footer-button" @click="$router.push('/details')">Order Now!</button>
+        </footer>
+
+    </ion-content>
   </ion-page>
 </template>
 
-<script lang="ts">
-
+<script>
 import HeroLayout from '@/components/HeroLayout.vue';
-import Sidebar from '../components/SidebarLayout.vue'
+import Sidebar from '@/components/SidebarLayout.vue'
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonContent } from '@ionic/vue'
 import Search from '@/components/Search.vue';
 import SwiperImage from '@/components/SwiperImage.vue';
 import SwiperCategory from '@/components/SwiperCategory.vue';
 import CardCategory from '@/components/CardCategory.vue';
-import FooterLayout from '@/components/FooterLayout.vue';
 
-export default{
-  components:{
+import axios from 'axios'
+import { ref, onMounted } from 'vue'
+
+export default {
+  components: {
     Sidebar,
     IonPage,
     IonHeader,
@@ -111,9 +113,50 @@ export default{
     SwiperImage,
     SwiperCategory,
     CardCategory,
-    FooterLayout
+
+  },
+  setup(){
+
+const BASE_URL = 'https://psi-exam-api.praxxys.dev/api';
+const products = ref([])
+
+const fetchToken = async () =>{
+    let token = await localStorage.getItem('token') 
+    products.value = token
+    console.log(products.value)
 }
+
+const fetchProduct = async () => {
+  let token = await localStorage.getItem('token') 
+  console.log(token)
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer' + token
+  };
+  console.log(headers)
+
+  axios.get(`${BASE_URL}/products`, { headers})
+  .then(response => {
+    console.log(response.data);
+  })
+
+  .catch(error => {
+    console.error(error);
+  });
+
+    }
+
+    onMounted(() =>{
+    fetchProduct();
+    });
+
+    return{
+        products,
+    }
 }
+ 
+}
+
 </script>
 
 <style scoped>
@@ -190,5 +233,35 @@ label{
 .content{
   margin-top: 8px;
 }
+/* Style the footer */
+footer {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    margin-top: 69px;
+    margin-bottom: 46px;
+    box-shadow: none;
+}
+
+/* Style the Logout button */
+#footer-button {
+  background: var(--ion-color-red);
+  color: var(--ion-color-white);
+  font-weight: 600;
+  font-size: 14px;
+  bottom: 20px; /* Adjust as needed to control the vertical position */
+  right: 20px;
+  border-radius: 16px;
+  text-transform: none;
+  box-shadow: none;
+  text-align: center;
+  position: fixed;
+  padding: 21px 42px;
+}
+/* Add hover effect for the button */
+#footer-button:hover {
+    background-color: #d00; 
+}
+
 </style>
 

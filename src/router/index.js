@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
 import OnBoarding from '../views/OnBoarding.vue';
 import InputLayout from '../components/InputLayout.vue';
 import Loginpage from '../views/Loginpage.vue';
 import Homepage from '../views/Homepage.vue';
 import OrderPage from '../views/Orderpage.vue';
 import OrderDetails from '../views/OrderDetails.vue';
+import addDelete from '../components/DeleteandAdd.vue';
+import loyaltypoints from '../components/LoyaltyPoints.vue'
 
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
     redirect: '/onboarding'
@@ -49,6 +50,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/details',
     name: 'Details',
     component: OrderDetails
+  },
+  {
+    path: '/addDel',
+    name: 'addDel',
+    component: addDelete
+  },
+  {
+    path: '/loyaltypoints',
+    name: 'loyaltypoints',
+    component: loyaltypoints
   },
 ]
 

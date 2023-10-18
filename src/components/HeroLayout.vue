@@ -5,13 +5,13 @@
             <img src="../assets/logo/Logo.png">
         </div>
         <div class="item">
-            <p>Anneoyon, Chou!</p>
+            <p>Anneoyong, Chou!</p>
             <h2>What do you want to eat?</h2>
         </div>
     </div>
 </template>
 
-<script lang="ts">
+<script>
 export default{
     name: 'HeroLayout',
 }

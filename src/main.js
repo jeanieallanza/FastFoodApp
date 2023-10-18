@@ -32,6 +32,7 @@ import '@ionic/vue/css/ionic-swiper.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router)

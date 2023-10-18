@@ -45,7 +45,7 @@
     </swiper>
 </template>
 
-<script lang="ts">
+<script>
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import {IonCard} from '@ionic/vue'

@@ -2,7 +2,7 @@
      <img class="rating" src="../assets/icons/Rating.png">
 </template>
 
-<script lang="ts">
+<script>
     export default{
         name:'Rating',
     }

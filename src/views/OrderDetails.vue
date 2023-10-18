@@ -1,353 +1,345 @@
 <template>
-
-    <!--sidebar components-->
-    <Sidebar></Sidebar>
-  
-    <ion-page id="main-content">
-  
-      <!--home header-->
-      <ion-header collapse="fade">
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button>
-              <img src="../assets/icons/bar.png">
-            </ion-menu-button>
-          </ion-buttons>
-  
-          <div class="item">
-           <h1>Meat</h1>
-          </div>
-           
-            <ion-buttons slot="end">
-              <img class="profile" src="../assets/icons/shopping.png">
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-  
-      <!--home content-->
-      <ion-content class="ion-padding">
-  
-    <form>
-    <!--for favorites-->
-    <div class="card">
-            <div class="box1">
-                <img src="../assets/images/meat.png">
+    <ion-page>
+          <!--header start here-->
+          <ion-header :translucent="true" id="details">
+          <ion-toolbar>
+            <ion-item lines="none">
+              <ion-list slot="start">
+                <ion-buttons>
+                  <ion-menu-toggle>
+                      <ion-icon name="chevron-back-outline"></ion-icon>
+                    </ion-menu-toggle>
+                </ion-buttons>
+              </ion-list>
+              <ion-list>
+               <h1>Meat</h1>
+              </ion-list>
+              <ion-list slot="end">
+                <ion-icon name="bag-handle"></ion-icon>
+              </ion-list>
+            </ion-item>
+          </ion-toolbar>
+        </ion-header>
+        <!--header ends here-->
+    
+    
+        <!--Main Content start here-->
+        <ion-content :fullscreen="true" id="details">
+    
+          <!--Container content start-->
+          <div class="content">
+    
+    
+          <!--Container Item start-->
+            <div class="item">
+             <ion-card id="card">
+              <ion-card-content>
+                <ion-row>
+                  <ion-col>
+                    <img src="../assets/images/meat.png">
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+             </ion-card>
+             <ion-row>
+                  <ion-col id="heart"> 
+                    <ion-button name="heart-outline">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
             </div>
-            <div class="box2">
-                <img src="../assets/icons/heart.png">
-            </div>
-        </div>
-
-        <!--details-->
-        <h6 class="title">Steak Fries Veggies</h6>
-        <Rating></Rating>
-        <p class="desc">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.</p>
-        
-
-                <!--Product Pricing-->
-                <div class="pricing">
-                <div class="qty1">
-                    <h2>P 172</h2>
-                </div>
-                <div class="qty2">
-                
-                    <!--counter-->
-                    <div class="price">
-                    <div class="qty1">
-                        <button>-</button>
-                    </div>
-                    <div class="qty2">
-                        <label>1</label>
-                    </div>
-                    <div class="qty3">
-                        <button>+</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <!--product select-->
-                <h2 class="title">Beverages</h2>
-                <div class="beverages">
-                    <div class="input">
-                        <label for="beverages">Choose Beverages</label>
-                        <select id="beverages" name="beverages">
-                            <option value="coke">Coke</option>
-                            <option value="sprite">Sprite</option>
-                            <option value="Tea">Tea</option>
-                            <option value="lemon">Lemon Juice</option>
-                        </select>
-                    </div>
-                </div>
-
-                  <!---Button-->
+          <!--Container Item end--> 
+    
+    
+          <!--Content start-->
+            <div class="subhead">
+              <h6>Steak Fries Veggies</h6>
+    
+              <div class="star">
+                <ion-icon name="star-sharp"></ion-icon>
+                <ion-icon name="star-sharp"></ion-icon>
+                <ion-icon name="star-sharp"></ion-icon>
+                <ion-icon name="star-sharp"></ion-icon>
+                <ion-icon name="star-half-sharp"></ion-icon>
+              </div> 
+    
+              <p>
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac,
+                rutrum consectetur ligula.
+              </p>
+    
+            <!--Pricing content-->
+              <div class="pricing">
+               <ion-row>
+                <ion-col size="auto">
+                  <h1 id="total">P 174</h1>
+                </ion-col>
+    
+                <ion-col offset="5">
+                  <div class="total">
+                    <ion-col size="1">
+                      <ion-button>-</ion-button>
+                    </ion-col>
+                     <ion-col>
+                      <ion-text>1</ion-text>
+                    </ion-col>
+                     <ion-col size="1">
+                      <ion-button>+</ion-button>
+                    </ion-col>
+                  </div>
+                </ion-col>
+               </ion-row>
+              </div>
+    
+            <!--Dropdown content-->
+                 <div class="beverages">
+                  <h2>Beverages</h2>
+                  <div class="dropdown">
+                    <ion-select label="Choose Beverages" label-placement="stacked">
+                    <ion-select-option value="coke">Coke</ion-select-option>
+                    <ion-select-option value="sprite">Sprite</ion-select-option>
+                    <ion-select-option value="royal">Royal</ion-select-option>
+                  </ion-select>
+                  </div>
+                 </div>
+    
+             <!---Button-->
                 <div class="button">
-                   <div class="btn1">
-                    <button>Regular</button>
-                   </div>
-                   <div class="btn2">
-                    <button>Large</button>
-                   </div>
-                   <div class="btn2">
-                    <button>X-Large</button>
-                   </div>
+                  <ion-row>
+                    <ion-col>
+                      <ion-button>Regular</ion-button>
+                    </ion-col>
+                    <ion-col>
+                      <ion-button :disabled="true">Large</ion-button>
+                    </ion-col>
+                    <ion-col>
+                      <ion-button :disabled="true">X-Large</ion-button>
+                    </ion-col>
+                  </ion-row>
                 </div>
-
-                <!--add item-->
-                <h2 class="title">Add Ons</h2>
-                <div class="add">
-                    <div class="addItem">
+    
+              <!--AddOn item-->
+              <div class="add">
+              <h2>Add-Ons</h2>
+        
+                <ion-card>
+                  <ion-card-content>
+    
+                    <ion-row>
+                      <ion-col>
                         <img src="../assets/images/sauce.png">
-                    </div>
-                    <div class="addItem">
-                        <h6>Tomato Sauce</h6>
-                        <label>Sauce</label>
+                      </ion-col>
+                    </ion-row>
+    
+                <!--Right item-->
+                 <ion-grid>
+                  <ion-row>
+                    <ion-col size="10">
+                        <h4>Tomato Sauce</h4>
+                        <p>Sauce</p>
+                    </ion-col>
+                    <ion-col>
+                      <ion-checkbox></ion-checkbox>
+                    </ion-col>
+                  </ion-row>
+    
+                    <ion-row>
+                      <div class="qty">
+                      <ion-col size="auto">
+                        <h3 id="total">P 48</h3>
+                      </ion-col>
+    
+                       <ion-row id="price">
+                        <ion-col offset="5">
+                          <ion-col size="7">
+                            <ion-button id="decrement">-</ion-button>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-text id="num">1</ion-text>
+                          </ion-col>
+                          <ion-col size="7">
+                            <ion-button id="increment">+</ion-button>
+                          </ion-col>
+                        </ion-col>
+                       </ion-row>
+                      </div>
+                    </ion-row>
+                   
+                   </ion-grid>
+                  </ion-card-content>
+                </ion-card>
+    
+                <ion-card>
+                  <ion-card-content>
+                    <!--left item-->
+    
+                    <ion-row>
+                      <ion-col>
+                        <img src="../assets/images/rice.png">
+                      </ion-col>
+                    </ion-row>
+    
+                  <!--Right item-->
+                  <ion-grid>
+                  <ion-row>
+                    <ion-col size="10">
+                        <h4>White Rice</h4>
+                        <p>Rice</p>
+                    </ion-col>
+                    <ion-col>
+                      <ion-checkbox></ion-checkbox>
+                    </ion-col>
+                  </ion-row>
+    
+                    <ion-row>
+                      <div class="qty">
+                      <ion-col size="auto">
+                        <h3 id="total">P 25</h3>
+                      </ion-col>
+    
+                       <ion-row id="price">
+                        <ion-col offset="5">
+                          <ion-col size="7">
+                            <ion-button id="decrement">-</ion-button>
+                          </ion-col>
+                          <ion-col size="3">
+                            <ion-text id="num">1</ion-text>
+                          </ion-col>
+                          <ion-col size="7">
+                            <ion-button id="increment">+</ion-button>
+                          </ion-col>
+                        </ion-col>
+                       </ion-row>
+                      </div>
+                    </ion-row>
+                   
+                   </ion-grid>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+          <!--Content end-->
+            </div>
+        <!--Container content end-->
+          </div>
+        </ion-content>
+        <!--Main Content end here-->
+    
+          <!--footer content-->
+          <div id="btn">
+            <ion-footer>
+              <ion-button id="open-modal">Add to Bag</ion-button>
+            </ion-footer>
+          </div>
 
-                        <div class="price">
-                            <div class="qty">
-                                <label>p 49</label>
-                            </div>
-                            <div class="qty">
-                                <div class="qty1">
-                                    <button>-</button>
-                                </div>
-                                <div class="qty2">
-                                    <label>1</label>
-                                </div>
-                                <div class="qty3">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-         </form>
-
-      </ion-content>
-
+           <!--to open modal-->
+           <div class="modal">
+            <ion-modal ref="modal" trigger="open-modal">
+              <modal-details/>
+            </ion-modal>
+          </div>
+    
     </ion-page>
-  </template>
-  
-  <script lang="ts">
-  import Rating from '@/components/Rating.vue';
-import Sidebar from '../components/SidebarLayout.vue'
-  import { IonPage, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonContent } from '@ionic/vue'
+    </template>
+    
+    <script>
+    import
+     {
+        IonPage,
+        IonHeader,
+        IonToolbar,
+        IonItem,
+        IonList,
+        IonButtons,
+        IonMenuToggle,
+        IonTitle,
+        IonIcon,
+        IonContent,
+        IonCard,
+        IonText,
+        IonNote,
+        IonSelect,
+        IonSelectOption,
+        IonCardContent,
+        IonCheckbox,
+        IonGrid,
+        IonRow,
+        IonCol,
+        IonFooter,
+        IonCardTitle,
+        IonButton,
+        IonModal,
+    } from '@ionic/vue';
+    
+    import ModalDetails from '../components/ModalDetails.vue';
+    import axios from 'axios'
+    import { ref, onMounted } from 'vue';
+    
+    export default{
+      components: {
+        IonPage,
+        IonHeader,
+        IonToolbar,
+        IonItem,
+        IonList,
+        IonButtons,
+        IonMenuToggle,
+        IonTitle,
+        IonIcon,
+        IonContent,
+        IonCard,
+        IonText,
+        IonNote,
+        IonSelect,
+        IonSelectOption,
+        IonCardContent,
+        IonCheckbox,
+        IonGrid,
+        IonRow,
+        IonCol,
+        IonFooter,
+        IonCardTitle,
+        IonButton,
+        IonModal,
+        ModalDetails,
+      },
+      setup(){
+        const BASE_URL = 'https://psi-exam-api.praxxys.dev/api';
+        const cartData = ref(null)
 
-  
-  export default{
-    components:{
-    Sidebar,
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonContent,
-    Rating
-}
-  }
-  </script>
-  
-  <style scoped>
-  ion-toolbar{
-    --min-height: 60px;
-    --padding-top: 19px;
-    --padding-bottom: 16px;
-    --padding-start: 16px;
-    --padding-end: 16px;
-  }
-  ion-content{
-    --padding-start: 16px;
-    --padding-end: 16px;
-  }
-  .item h1{
-    text-align: start;
-    justify-content: center;
-    margin-left: 27px;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 30px;
-  }
-  .profile{
-    width: auto;
-  }
-  button{
-    background-color: transparent;
-    border: none;
-  }
-  label{
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-  }
-  .title{
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin-top: 16px;
+        const fetchData = async () => {
+          let token = await localStorage.getItem('token')
+          cartData.value = token
+          console.log(cartData.value)
+        }
 
-  }
-  .desc{
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  .card{
-    position: relative;
-    padding-top: 33px;
-    padding-bottom: 32px;
-    padding-right: 42px;
-    padding-left: 43px;
-    background-color: #E9ECEF;
-    border-radius: 16px;
-    text-align: center;
-    justify-content: center;
-  }
-  .card .box2{
-    position: absolute;
-    right: 20px;
-    background-color: #fff;
-    width: auto;
-    height: auto;
-    padding: 13px;
-    border-radius: 18px;
-    box-shadow: 2px 2px 10px 0px #00000029;
-  }
-  .card .box2 img{
-    text-align: center;
-    width: 20px;
-  }
+        const fetchCart = async () => {
+          let token = await localStorage.getItem('token') 
+          console.log(token)
+          const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer' + token
+        };
+        console.log(headers)
 
-  .pricing{
-    display: grid;
-    grid-template-columns: 69px 112px;
-    gap: 160px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 24px;
-  }
-  .pricing .price{
-    display: grid;
-    grid-template-columns: 32px 32px 32px;
-    gap: 4px;
-    align-items: center;
-    justify-content: center;
-  }
-  .pricing h2{
-    font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #D71921;
-  }
-  .pricing .price{
-    width: auto;
-    height: auto;
-  }
-  .pricing .price button{
-    color: #D71921;
-    background: #0000001A;
-    font-size: 15px;
-    border-radius: 12px;
-    font-weight: 700;
-    padding: 11px 15px;
-  }
-  .price .qty2{
-    margin-left: 15px;
-  }
-  .price .qty2 label{
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  .beverages{
-    margin-top: 24px;
-  }
-   
-  .title{
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  .beverages{
-    padding: 10px 204px 10px 16px;
-    border: 1px solid #DEE2E6;
-    margin: 0 0 8px 0;
-    border-radius: 16px;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr;
-  }
-  .beverages label{
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
-  select{
-    color: #6c757d;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    width: 320px;
-}
-option{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: #000;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.button{
-    display: grid;
-    grid-template-columns: 109px 110px 109px;
-    gap: 7px;
-    text-align: center;
-    margin-top: 16px;
-}
-.button .btn1{
-    background: #FFC02E;
-    padding: 14px;
-    border-radius: 12px;
-}
-.button .btn1 button{
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #fff;
-}
-.button .btn2{
-    background: #DEE2E6;
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid #DEE2E6
-}
-.button .btn2 button{
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #000;
-}
-</style>
-  
-  
+        axios.get(`${BASE_URL}/cart`, { headers})
+        .then(response => {
+          console.log(response.data);
+        })
+
+        .catch(error => {
+          console.error(error);
+        });
+
+      }
+
+        onMounted(() =>{
+        fetchCart();
+      })
+    }
+        
+    }
+
+    </script>
+    

@@ -47,7 +47,7 @@
     </ion-page>
   </template>
   
-  <script lang="ts">
+  <script>
   
   import HeroLayout from '@/components/HeroLayout.vue';
   import Sidebar from '../components/SidebarLayout.vue'

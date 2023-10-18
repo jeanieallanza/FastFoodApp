@@ -20,7 +20,7 @@
     </swiper>
 </template>
 
-<script lang="ts">
+<script>
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 

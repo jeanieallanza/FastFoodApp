@@ -1,17 +1,20 @@
 <template>
+    
  <div class="container">
 
-
     <!--card item: 1-->
-    <div class="box">
-        <img class="item" src="../assets/images/veggies.png">
-        <h6>Steak Fries Veggies</h6>
-        <label>Meat</label>
-        <div class="quantity">
+    <button  class="box">
+        <div v-for="product in products" :key="product.id">
+            <img class="item" src="../assets/images/steak.png">
+            <h6>Steak Fried Veggies</h6>
+            <label>Meat</label>
+            <div class="quantity">
             <h3>P 178</h3>
             <img src="../assets/icons/Rating.png">
         </div>
-    </div>
+        </div>
+    </button>
+
     <div class="box">
         <img class="item" src="../assets/images/salad.png">
         <h6>Steak Fries Veggies</h6>
@@ -64,14 +67,36 @@
  </div>
 </template>
 
-<script lang="ts">
+<script>
 import {IonIcon} from '@ionic/vue'
+import {ref} from 'vue'
 
 export default{
     name :'CardCategory',
     components:{
         IonIcon,
+    },
+    setup() {
+    const products = ref([])
+
+    const load = async () => {
+      try {
+        let data = await fetch('https://psi-exam-api.praxxys.dev/api/products')
+
+        if (!data.ok) {
+        throw Error('Error occurs when loading data')
+        }
+      products.value = await data.json()
+      } catch(e) {
+        console.log("Failed to load data")
+      }
     }
+    load()
+
+    return {
+        products, load
+      }
+  }
 }
 </script>
 
